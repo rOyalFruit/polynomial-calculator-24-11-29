@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleCalculatorTest {
     @Test
@@ -22,6 +21,24 @@ public class SimpleCalculatorTest {
         SimpleCalculator simpleCalculator = new SimpleCalculator();
         int rs = simpleCalculator.plus(2, 10);
 
-        assertEquals(12, rs);
+        assertThat(rs).isEqualTo(12);
+    }
+
+    @Test
+    @DisplayName("-1 + 1 = 0")
+    public void t3(){
+        SimpleCalculator simpleCalculator = new SimpleCalculator();
+        int rs = simpleCalculator.plus(-1, 1);
+
+        assertThat(rs).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("-10 + 20 = 10")
+    public void t4(){
+        SimpleCalculator simpleCalculator = new SimpleCalculator();
+        int rs = simpleCalculator.plus(-10, 20);
+
+        assertThat(rs).isEqualTo(10);
     }
 }
